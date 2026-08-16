@@ -81,6 +81,8 @@ All commands are under `/trainers`.
 
 Run `/trainers setup` to open the editor (a chest style menu). Browse Groups, then a Group, then a Trainer, click a slot to add or edit a Pokemon, and use New Pokemon to fill an empty team (up to 6). Reorder or remove team members from the trainer view. Battle rules, rewards, and AI level are set with the `/trainers set*` commands above.
 
+Trainers are stored as JSON in `config/trainers/groups/` and can be edited by hand if you prefer. See [editing trainer files](docs/trainer-json.md).
+
 Per Pokemon you can add or tune:
 
 - Species and form

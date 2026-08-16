@@ -1,0 +1,54 @@
+{
+  "battleType": "doubles",
+  "aiLevel": 9,
+  "team": [
+    {
+      "species": "cobblemon:incineroar",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "cobblemon:adamant",
+      "ability": "intimidate",
+      "moveset": ["fakeout", "flareblitz", "knockoff", "partingshot"],
+      "ivs": {
+        "hp": 31,
+        "attack": 31,
+        "defence": 31,
+        "special_attack": 0,
+        "special_defence": 31,
+        "speed": 31
+      },
+      "evs": {
+        "hp": 252,
+        "attack": 252,
+        "special_defence": 4
+      },
+      "heldItem": "cobblemon:leftovers",
+      "shiny": false,
+      "aspects": []
+    },
+    {
+      "species": "cobblemon:urshifu",
+      "gender": "MALE",
+      "level": 50,
+      "nature": "cobblemon:jolly",
+      "ability": "unseenfist",
+      "moveset": ["surgingstrikes", "closecombat", "aquajet", "detect"],
+      "ivs": {
+        "hp": 31,
+        "attack": 31,
+        "defence": 31,
+        "special_attack": 0,
+        "special_defence": 31,
+        "speed": 31
+      },
+      "evs": {
+        "attack": 252,
+        "speed": 252,
+        "hp": 4
+      },
+      "heldItem": "minecraft:air",
+      "shiny": false,
+      "aspects": ["rapid-strike"]
+    }
+  ]
+}
