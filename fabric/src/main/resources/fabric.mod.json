@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "cobblemontrainers",
+  "version": "${version}",
+  "name": "Cobblemon Trainers EX",
+  "description": "A fork of CobblemonTrainers (by selfdot) adding double battle support and a stronger, less cheesable battle AI.",
+  "authors": [
+    "xyannwalk",
+    "selfdot"
+  ],
+  "license": "Apache 2.0 with Commons Clause",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.selfdot.cobblemontrainers.fabric.CobblemonTrainersFabric"
+    ],
+    "server": [
+      "com.selfdot.cobblemontrainers.fabric.server.CobblemonTrainersFabricServer"
+    ]
+  },
+  "mixins": [
+    "cobblemontrainersex.mixins.json",
+    "cobblemontrainersex-common.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": ">=1.20.1",
+    "architectury": ">=9.2.14",
+    "cobblemon": ">=1.5.2"
+  }
+}

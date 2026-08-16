@@ -1,0 +1,37 @@
+modLoader="javafml"
+loaderVersion="[47,)"
+license="Apache 2.0 with Commons Clause"
+
+[[mods]]
+modId="cobblemontrainers"
+version="${version}"
+displayName="Cobblemon Trainers EX"
+authors="xyannwalk, selfdot"
+description='''
+A fork of CobblemonTrainers (by selfdot) adding double battle support and a stronger, less cheesable battle AI.
+'''
+
+[[dependencies.cobblemontrainers]]
+    modId="forge"
+    mandatory=true
+    versionRange="[47,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.cobblemontrainers]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.20.1,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.cobblemontrainers]]
+    modId="architectury"
+    mandatory=true
+    versionRange="[9.2.14,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.cobblemontrainers]]
+    modId="cobblemon"
+    mandatory=true
+    versionRange="[1.5.2,)"
+    ordering="NONE"
+    side="BOTH"

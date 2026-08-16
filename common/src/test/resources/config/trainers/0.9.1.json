@@ -1,0 +1,150 @@
+[
+  {
+    "name": "a",
+    "team": [
+      {
+        "species": "cobblemon:rayquaza",
+        "gender": "GENDERLESS",
+        "level": 1,
+        "nature": "cobblemon:docile",
+        "ability": "airlock",
+        "moveset": [
+          "twister",
+          "scaryface",
+          "dragonascent",
+          "ancientpower"
+        ],
+        "ivs": {
+          "hp": 22,
+          "attack": 15,
+          "defence": 18,
+          "special_attack": 24,
+          "special_defence": 3,
+          "speed": 12
+        },
+        "evs": {},
+        "shiny": true
+      }
+    ],
+    "group": "Ungrouped",
+    "winCommand": "",
+    "lossCommand": ""
+  },
+  {
+    "name": "b",
+    "team": [
+      {
+        "species": "cobblemon:bulbasaur",
+        "gender": "FEMALE",
+        "level": 100,
+        "nature": "cobblemon:lonely",
+        "ability": "overgrow",
+        "moveset": [
+          "tackle",
+          "growl"
+        ],
+        "ivs": {
+          "hp": 25,
+          "attack": 20,
+          "defence": 15,
+          "special_attack": 12,
+          "special_defence": 12,
+          "speed": 1
+        },
+        "evs": {},
+        "shiny": false
+      }
+    ],
+    "group": "group1",
+    "winCommand": "",
+    "lossCommand": ""
+  },
+  {
+    "name": "Ash",
+    "team": [
+      {
+        "species": "cobblemon:charmander",
+        "gender": "MALE",
+        "level": 1,
+        "nature": "cobblemon:adamant",
+        "ability": "blaze",
+        "moveset": [
+          "scratch"
+        ],
+        "ivs": {
+          "hp": 13,
+          "attack": 6,
+          "defence": 26,
+          "special_attack": 5,
+          "special_defence": 16,
+          "speed": 12
+        },
+        "evs": {},
+        "shiny": false
+      }
+    ],
+    "group": "Ungrouped",
+    "winCommand": "eco give %player% 0",
+    "lossCommand": "say haha u lose"
+  },
+  {
+    "name": "ash",
+    "team": [
+      {
+        "species": "cobblemon:caterpie",
+        "gender": "MALE",
+        "level": 1,
+        "nature": "cobblemon:docile",
+        "ability": "shielddust",
+        "moveset": [
+          "tackle",
+          "stringshot"
+        ],
+        "ivs": {
+          "hp": 23,
+          "attack": 3,
+          "defence": 26,
+          "special_attack": 16,
+          "special_defence": 28,
+          "speed": 11
+        },
+        "evs": {},
+        "shiny": false
+      }
+    ],
+    "group": "group1",
+    "winCommand": "tell %player% gg",
+    "lossCommand": ""
+  },
+  {
+    "name": "hello",
+    "team": [
+      {
+        "species": "cobblemon:blastoise",
+        "gender": "MALE",
+        "level": 1,
+        "nature": "cobblemon:timid",
+        "ability": "torrent",
+        "moveset": [
+          "withdraw",
+          "watergun",
+          "tailwhip",
+          "tackle"
+        ],
+        "ivs": {
+          "hp": 28,
+          "attack": 4,
+          "defence": 21,
+          "special_attack": 23,
+          "special_defence": 4,
+          "speed": 9
+        },
+        "evs": {},
+        "shiny": false
+      }
+    ],
+    "group": "Ungrouped",
+    "winCommand": "",
+    "lossCommand": ""
+  }
+]
