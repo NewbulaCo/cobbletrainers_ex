@@ -5,6 +5,7 @@ import com.cobblemon.mod.common.api.battles.model.actor.BattleActor;
 import com.cobblemon.mod.common.battles.ActiveBattlePokemon;
 import com.cobblemon.mod.common.battles.pokemon.BattlePokemon;
 import com.cobblemon.mod.common.entity.pokemon.PokemonEntity;
+import com.selfdot.cobblemontrainers.ai.CommanderTracker;
 import com.selfdot.cobblemontrainers.trainer.EntityBackerTrainerBattleActor;
 import com.selfdot.cobblemontrainers.util.PokemonUtility;
 import org.spongepowered.asm.mixin.Mixin;
@@ -14,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import java.util.List;
+import java.util.UUID;
 
 @Mixin(PokemonBattle.class)
 public abstract class PokemonBattleMixin {
@@ -21,8 +23,12 @@ public abstract class PokemonBattleMixin {
     @Shadow(remap = false)
     public abstract Iterable<BattleActor> getActors();
 
+    @Shadow(remap = false)
+    public abstract UUID getBattleId();
+
     @Inject(method = "end", at = @At("HEAD"), remap = false)
     private void injectEnd(CallbackInfo ci) {
+        CommanderTracker.clear(getBattleId());
         getActors().forEach(actor -> {
             if (actor instanceof EntityBackerTrainerBattleActor trainerActor) {
                 List<ActiveBattlePokemon> activeBattlePokemonList = trainerActor.getActivePokemon();

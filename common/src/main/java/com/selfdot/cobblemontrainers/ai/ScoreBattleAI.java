@@ -94,6 +94,8 @@ public class ScoreBattleAI implements BattleAI {
         clearStaleReservations(self);
         if (forceSwitch || self.isGone()) return chooseSwitch(self, firstLiveOpponent(self));
         if (moveset == null) return PassActionResponse.INSTANCE;
+        // riding an ally: showdown only accepts a pass for this slot.
+        if (CommanderTracker.isCommanding(self)) return PassActionResponse.INSTANCE;
 
         AllySlot ally = level >= DOUBLES_LEVEL ? coChoosingAlly(self) : null;
         if (ally == null) return soloTurn(self, moveset); // singles / no live ally
@@ -290,6 +292,7 @@ public class ScoreBattleAI implements BattleAI {
             ActiveBattlePokemon a = actives.get(i);
             if (a == self || a == null || a.isGone() || a.getBattlePokemon() == null) continue;
             if (forced != null && i < forced.size() && Boolean.TRUE.equals(forced.get(i))) continue;
+            if (CommanderTracker.isCommanding(a)) continue; // it passes, so there is nothing to plan for it
             ShowdownMoveset ms = i < movesets.size() ? movesets.get(i) : null;
             if (ms != null) return new AllySlot(a, ms);
         }
@@ -866,7 +869,7 @@ public class ScoreBattleAI implements BattleAI {
         int count = 0;
         for (ActiveBattlePokemon slot : slots) {
             BattlePokemon mon = slot == null || slot.isGone() ? null : slot.getBattlePokemon();
-            if (mon == null || mon.getHealth() <= 0) continue;
+            if (mon == null || mon.getHealth() <= 0 || CommanderTracker.isCommanding(slot)) continue;
             total += DamageCalc.effectiveSpeed(mon);
             count++;
         }
@@ -1147,7 +1150,8 @@ public class ScoreBattleAI implements BattleAI {
         if (targets == null || targets.isEmpty()) return null;
         if (preferred != null && targets.contains(preferred)) return preferred.getPNX();
         for (Targetable t : targets) {
-            if (t instanceof ActiveBattlePokemon abp && !abp.isAllied(self) && abp.getBattlePokemon() != null) {
+            if (t instanceof ActiveBattlePokemon abp && !abp.isAllied(self) && abp.getBattlePokemon() != null
+                && !CommanderTracker.isCommanding(abp)) {
                 return abp.getPNX();
             }
         }
@@ -1180,10 +1184,12 @@ public class ScoreBattleAI implements BattleAI {
     // --- helpers ---
 
     // live foes adjacent to this slot, in target order. from getAdjacentOpponents(), not fixed indices.
+    // a commanding foe is invulnerable, so it isn't a target.
     private List<ActiveBattlePokemon> liveOpponents(ActiveBattlePokemon self) {
         List<ActiveBattlePokemon> out = new ArrayList<>();
         for (Targetable t : self.getAdjacentOpponents()) {
-            if (t instanceof ActiveBattlePokemon abp && abp.getBattlePokemon() != null && !abp.isGone()) {
+            if (t instanceof ActiveBattlePokemon abp && abp.getBattlePokemon() != null && !abp.isGone()
+                && !CommanderTracker.isCommanding(abp)) {
                 out.add(abp);
             }
         }

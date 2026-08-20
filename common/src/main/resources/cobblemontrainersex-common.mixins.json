@@ -9,6 +9,7 @@
     "PlayerBattleActorMixin",
     "PokemonBattleMixin",
     "PokemonEntityMixin",
+    "RequestInstructionMixin",
     "StartInstructionMixin",
     "SwitchInstructionMixin",
     "TerastallizeInstructionMixin"
